@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>Map:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Draws a 2 dimensional or three dimensional map of a planet. 
+
+   Turns on mouse driven 3D rotation if mType == '3d'. String inputs are
+   not case sensitive. planet is the name of a .mat file with the
+   variables planetMap and planetColorMap. Your monitor must be set to
+   thousands of colors.
+
+   The planetColorMap is not needed if the planetMap is true color, with
+   channels for R, G, B (mxnx3).
+
+   The radius field may be an array of semimajor axes, (1x3). See Ellipsd.
+
+   Since version 2.
+--------------------------------------------------------------------------
+   Form:
+   p = Map( planet, mType, noNewFig )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   planet        (1,:)    Any planet name or the structure
+                            planet.planetMap
+                            planet.planetColorMap
+                            planet.radius
+   mType         (2,:)   '2d' or '3d' default is '3d'
+
+   -------
+   Outputs
+   -------
+   p             (:)      Planet image data structure
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/EllipsdHeader.html">Common: Graphics/Ellipsd</a>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CommonHeaders/XLabelSHeader.html">Common: Graphics/XLabelS</a>
+<a href="../CommonHeaders/YLabelSHeader.html">Common: Graphics/YLabelS</a>
+<a href="../CommonHeaders/ZLabelSHeader.html">Common: Graphics/ZLabelS</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

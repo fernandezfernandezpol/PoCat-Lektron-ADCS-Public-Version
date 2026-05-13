@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>TwoSpacecraftOrbitSimulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>TwoSpacecraftOrbitSimulation:</h2>
+<pre>
+ Demonstrate a 2 satellite CubeSat constellation.
+ This simulation includes drag, solar radiation pressure, sun and moon
+ perturbations, and a thruster model. Uses ode113 and FOrbitMultiSpacecraft.
+ The simulation takes a few minutes and there is no waitbar; be patient!
+
+  ----------------------------------------------------------------------
+  See also LabelLine, NewFig, Plot2D, TimeLabl, XLabelS, YLabelS, Skew, 
+  Date2JD, CubeSatPropulsion, CubeSatAero, CubeSatRadiationPressure, 
+  CubeSatFaces, FOrbitMultiSpacecraft, SolarFluxPrediction
+  ------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/ConstantHeader.html">Common: Database/Constant</a>
+<a href="../CommonHeaders/LabelLineHeader.html">Common: Graphics/LabelLine</a>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CommonHeaders/ODETimeDisplayHeader.html">Common: Graphics/ODETimeDisplay</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/TimeLablHeader.html">Common: Graphics/TimeLabl</a>
+<a href="../CommonHeaders/XLabelSHeader.html">Common: Graphics/XLabelS</a>
+<a href="../CommonHeaders/YLabelSHeader.html">Common: Graphics/YLabelS</a>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CubeSatHeaders/CubeSatPropulsionHeader.html">CubeSat: Actuators/CubeSatPropulsion</a>
+<a href="../CubeSatHeaders/CubeSatAeroHeader.html">CubeSat: Simulation/CubeSatAero</a>
+<a href="../CubeSatHeaders/CubeSatRadiationPressureHeader.html">CubeSat: Simulation/CubeSatRadiationPressure</a>
+<a href="../CubeSatHeaders/FOrbitMultiSpacecraftHeader.html">CubeSat: Simulation/FOrbitMultiSpacecraft</a>
+<a href="../CubeSatHeaders/CubeSatFacesHeader.html">CubeSat: Utilities/CubeSatFaces</a>
+<a href="../SCHeaders/VOrbitHeader.html">SC: BasicOrbit/VOrbit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

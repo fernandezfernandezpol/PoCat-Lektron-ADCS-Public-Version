@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>GasProperties</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>GasProperties:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Returns gas properties.
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   [m, gamma] = GasProperties( gas )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   gas           (1,:)  Name of gas to be used.
+
+   -------
+   Outputs
+   -------
+   m             (1,1)  Molecular weight
+   gamma         (1,1)  Ratio of specific heats
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/StrMtchHeader.html">Common: Graphics/StrMtch</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

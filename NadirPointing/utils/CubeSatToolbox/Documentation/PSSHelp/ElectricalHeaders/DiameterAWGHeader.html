@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>DiameterAWG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>DiameterAWG:</h2>
+<pre>
+------------------------------------------------------------------------
+   Diameter from AWG gauge.
+
+   Since version 9.
+------------------------------------------------------------------------
+   Form:
+       DiameterAWG;
+   d = DiameterAWG( n )
+------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   n          (1,:) AWG gauge 0000 is -3
+
+   -------
+   Outputs
+   -------
+   d          (1,:) Diameter (mm)
+   
+
+------------------------------------------------------------------------
+   Reference:
+   http://en.wikipedia.org/wiki/American_wire_gauge#
+   Table_of_AWG_wire_sizes
+------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LossPolarization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>LossPolarization:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Computes the polarization loss.
+
+   Type LossPolarization for a demo.
+
+   Loss is converted to a gain by making it negative.
+--------------------------------------------------------------------------
+   Form:
+   l = LossPolarization( psi )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   psi            (:)  Angle between transmit and receive planes (deg)
+
+   -------
+   Outputs
+   -------
+   l              (:)  Loss (dB)
+
+--------------------------------------------------------------------------
+	 Reference: Maral, G. and M. Bousquet. (1998.) Satellite Communications
+               Systems, Third Edition. John Wiley. p. 27.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../MathHeaders/CosDHeader.html">Math: Trigonometry/CosD</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

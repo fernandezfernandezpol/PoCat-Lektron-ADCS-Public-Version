@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>InertiaCM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>InertiaCM:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Compute the inertia about the CM given the inertia about point 0,
+   the position of the CM with respect to point 0, and the mass.
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   ICM = InertiaCM( I0, m, rCM );
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   I0      (3,3)    Inertia about point 0 (kg-m^2)
+   m       (1,1)    Mass (kg)
+   rCM     (3,1)    Position of CM with respect to 0
+   
+   -------
+   Outputs
+   -------
+   ICM     (3,3)    Inertia about CM
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../MathHeaders/SkewSqHeader.html">Math: Linear/SkewSq</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

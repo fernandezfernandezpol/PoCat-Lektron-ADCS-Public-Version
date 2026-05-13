@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>LoadOBJModel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>LoadOBJModel:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Load a Wavefront OBJ file. The file can have an associated .mtl file.
+
+
+   If you call the function with no outputs it will draw the model. If you
+   call the function with no inputs you can select a file using the dialog
+   box.
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   g = LoadOBJModel( file, path, kScale )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+
+   file        (1,:) Filename
+   path        (1,:) Path to the file
+   kScale      (1,1) Optional scale factor of the model
+
+   -------
+   Outputs
+   -------
+   g           (1,1) Data structure
+                     .name       (1,:)  Model name
+                     .component  (:)    Component structure
+                     .radius     (1,1)
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/StringToTokensHeader.html">Common: General/StringToTokens</a>
+<a href="../CommonHeaders/ConvertOBJFileColorToMatlabHeader.html">Common: Graphics/ConvertOBJFileColorToMatlab</a>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CommonHeaders/XLabelSHeader.html">Common: Graphics/XLabelS</a>
+<a href="../CommonHeaders/YLabelSHeader.html">Common: Graphics/YLabelS</a>
+<a href="../CommonHeaders/ZLabelSHeader.html">Common: Graphics/ZLabelS</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

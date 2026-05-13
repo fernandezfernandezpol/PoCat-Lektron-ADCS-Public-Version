@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>TubeSatFaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>TubeSatFaces:</h2>
+<pre>
+--------------------------------------------------------------------------
+ Returns the faces along each axis of a cylindrical TubeSat. 
+ The z axis is always the long axis.
+--------------------------------------------------------------------------
+   Form:
+   [a,n,r] = TubeSatFaces( l, rear )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   l        (1,1)   Either (1,2,3,4) for single, double, triple or quad
+   rear     (1,1)   Flag to include the rear faces
+
+   -------
+   Outputs
+   -------
+   a    (1,9) or (1,18)   Areas [aXY ... aZ]
+   n    (3,9) or (3,18)   Outward normals
+   r    (3,9) or (3,18)   Location from geometric center of spacecraft
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/TitleSHeader.html">Common: Graphics/TitleS</a>
+<a href="../CubeSatHeaders/TubeSatModelHeader.html">CubeSat: Utilities/TubeSatModel</a>
+<a href="../CubeSatHeaders/DrawCubeSatHeader.html">CubeSat: Visualization/DrawCubeSat</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

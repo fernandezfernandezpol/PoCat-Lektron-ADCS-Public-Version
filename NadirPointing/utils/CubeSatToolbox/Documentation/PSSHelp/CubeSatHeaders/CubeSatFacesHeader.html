@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>CubeSatFaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>CubeSatFaces:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Returns the faces along each axis of a linear CubeSat. 
+   1U means a 10 cm cube. The x and y faces are always the long faces.
+   Alternatively a custom CubeSat may be specified by the U along each 
+   axis, such as [1 2 3] for a 2x3 6U CubeSat.
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   [a,n,r] = CubeSatFaces( type, rear )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   type     (1,:)   'nU' n may be a fraction, i.e. 1.5
+                      or for a custom CubeSat, enter 3 axes: [x y z], as
+                      in [1 2 3] (U)
+   rear     (1,1)   Flag to include the rear faces, i.e. -X, -Y, -Z
+
+   -------
+   Outputs
+   -------
+   a    (1,3) or (1,6)   Areas [aX aY aZ]
+   n    (3,3) or (3,6)   Outward normals
+   r    (3,3) or (3,6)   Location from geometric center of spacecraft
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CubeSatHeaders/CubeSatModelHeader.html">CubeSat: Utilities/CubeSatModel</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

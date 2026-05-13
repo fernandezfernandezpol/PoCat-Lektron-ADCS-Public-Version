@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>MomentumUnloading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>MomentumUnloading:</h2>
+<pre>
+ Compute the torque from a magnetic momentum unloading system.
+ Uses a pseudo-inverse control law. If the magnetic field is
+ aligned the the momentum no control is possible and you will
+ see a spike in the response.
+
+ The dipole commands can be implemented by a linear control of the
+ dipole current or by pulsewidth modulation.
+
+ tMM = - gain*h
+
+ But the torque is t = m x b
+ where m is the dipole vector
+
+ so m (u x b)m = - gain*h
+
+ [uxb]m = -gain*h
+
+ so
+
+ m      = -gain pinv([uxb]) h
+
+ tol prevents a dipole from being used that is too closely aligned
+ with the magnetic field. 
+
+ Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   [tMM, m, angle] = MomentumUnloading( u, b, gain, h, tol )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   u            (3,:)     Dipole unit vectors
+   b            (3,1)     B-Field (T)
+   gain         (3,1)     Proportional gain (N/Nms)
+   h            (3,1)     Momentum (Nms)
+   tol          (1,1)     Tolerance for using a dipole (default 0.2)
+
+   -------
+   Outputs
+   -------
+   tMM          (3,1)     Total torque
+   m            (:,1)     Dipole commands
+   angle        (1,1)     b dot h
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/DotHeader.html">Math: Linear/Dot</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

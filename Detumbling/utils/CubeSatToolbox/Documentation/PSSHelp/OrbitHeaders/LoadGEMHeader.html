@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>LoadGEM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>LoadGEM:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Load the GEMT1 data.
+   If there is only one output it will output a data structure.
+
+   Since version 1.
+--------------------------------------------------------------------------
+   Form:
+   [sO, c, j, mu, a] = LoadGEM( unNorm )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   unNorm           If any input here generate unnormalized coefficients
+
+   -------
+   Outputs
+   -------
+   s0       (36,36) S terms  s(n,m) where n and m are degree and order of the model.
+   c        (36,36) C terms  c(n,m)
+   j        (36)    m = 0 terms
+   mu               Spherical gravitational potential
+   a                Earth radius
+
+   or
+
+   gravityModel    (1,1) Data structure
+                         .name (1,:) Model name
+                         .mu   (1,1) Gravitational constant (km^3/sec^2)
+                         .a    (1,1) Model earth radius (km)
+                         .c    (n,n) Cosine coefficients
+                         .s    (n,n) Sine coefficients
+                         .j    (1,n) Zonal harmonics
+
+--------------------------------------------------------------------------
+   Reference: Seidelmann, P.K, (ed) (1992). Explanatory Supplement to the
+              Astronomical Almanac. University Science Books, Mill Valley, CA.
+              pp. 227-233.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Mesh2Header.html">Common: Graphics/Mesh2</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../MathHeaders/DupVectHeader.html">Math: Linear/DupVect</a>
+<a href="../MathHeaders/FactorlHeader.html">Math: Linear/Factorl</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

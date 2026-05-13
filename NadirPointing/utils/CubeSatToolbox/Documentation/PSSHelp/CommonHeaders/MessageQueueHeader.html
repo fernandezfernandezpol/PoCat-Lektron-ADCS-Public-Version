@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>MessageQueue</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>MessageQueue:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Creates a message queue GUI. Once opened, it stays open. 
+   It accumulates messages from any function that sends messages to the queue.
+
+   Add this to your code whenever you want a to alert the user to an error.
+
+   MessageQueue('add', myFunction ,'The error','error');
+
+   Add this to your code whenever you want a to send the user a message.
+
+   MessageQueue('add', myFunction ,'The message');
+
+   You can turn on a sound notification. Use MessageQueue( 'sound on' ).
+
+--------------------------------------------------------------------------
+   Form:
+   MessageQueue( action, modifier, msg, err )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   action          (1,:)   Action to be taken 
+   modifier        (1,:)   Action modifier
+   msg             (1,:)   Message
+   err             (1,:)   If anything entered an error
+
+   -------
+   Outputs
+   -------
+   none
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/CloseFigureHeader.html">Common: General/CloseFigure</a>
+<a href="../CommonHeaders/FSWClockHeader.html">Common: General/FSWClock</a>
+<a href="../PlottingHeaders/HelpSystemHeader.html">Plotting: Help/HelpSystem</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

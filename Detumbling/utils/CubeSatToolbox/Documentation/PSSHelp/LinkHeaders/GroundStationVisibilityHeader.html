@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>GroundStationVisibility</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>GroundStationVisibility:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Determine ground station visibility for spacecraft position(s).
+   Has a built-in demo.
+--------------------------------------------------------------------------
+   Form:
+   visible = GroundStationVisibility( rGroundStation, jD, rSC, horizonAngle )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   rGroundStation   (3,m)   Earth fixed location of station(s)
+   jD               (1,n)   Julian date
+   rSC              (3,n)   Position(s) of spacecraft, ECI frame
+   horizonAngle     (1,1)   Minimum elevation to ground station (rad)
+
+   -------
+   Outputs
+   -------
+   visible          (n,m)   Matrix of visible flags
+
+--------------------------------------------------------------------------
+   See also SatelliteVisibility, ECIToEF, LatLonAltToEF
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../AeroUtilsHeaders/LatLonAltToEFHeader.html">AeroUtils: Coord/LatLonAltToEF</a>
+<a href="../CommonHeaders/Axis3DHeader.html">Common: Graphics/Axis3D</a>
+<a href="../CommonHeaders/MapHeader.html">Common: Graphics/Map</a>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CommonHeaders/XLabelSHeader.html">Common: Graphics/XLabelS</a>
+<a href="../CommonHeaders/YLabelSHeader.html">Common: Graphics/YLabelS</a>
+<a href="../CommonHeaders/ZLabelSHeader.html">Common: Graphics/ZLabelS</a>
+<a href="../CommonHeaders/JD2000Header.html">Common: Time/JD2000</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../MathHeaders/DotHeader.html">Math: Linear/Dot</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+<a href="../SCHeaders/RVFromKeplerHeader.html">SC: BasicOrbit/RVFromKepler</a>
+<a href="../SCHeaders/EarthRteHeader.html">SC: Ephem/EarthRte</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

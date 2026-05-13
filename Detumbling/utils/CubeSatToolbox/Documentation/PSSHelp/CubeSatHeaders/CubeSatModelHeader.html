@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>CubeSatModel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>CubeSatModel:</h2>
+<pre>
+ Generate vertices and faces for a CubeSat model.
+ If there are no outputs it will generate a plot with surface normals, or
+ you can draw the cubesat model using patch:
+
+   patch('vertices',v,'faces',f,'facecolor',[0.5 0.5 0.5]);
+
+ type can be '3U' or [3 2 1] i.e. a different dimension for x, y and z.
+
+ Type CubeSatModel for a demo of a 3U CubeSat. 
+
+ This function will populate dRHS for use in RHSCubeSat. The surface
+ data for the cube faces will be 6 surfaces that are the dimensions of
+ the core spacecraft. Additional surfaces are added for the deployable  
+ solar panels. Solar panels are grouped into wings that attached to the 
+ edges of the CubeSat.
+
+ The function computes the inertia matrix, center of mass and total 
+ mass. The mass properties of the interior components are computed from
+ total mass and center of mass. 
+
+ If you set frameOnly to true (or 1), v and f will not contain the 
+ walls. However, dRHS will contain all the wall properties.
+--------------------------------------------------------------------------
+   Form:
+   d            = CubeSatModel( 'struct' )
+   [v, f]       = CubeSatModel( type, t )
+   [v, f, dRHS] = CubeSatModel( type, d, frameOnly )
+   Demo:
+   CubeSatModel
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   type        (1,:) 'nU' where n may be any number, or [x y z]
+   d            (.)  Data structure for the CubeSat
+           .thicknessWall          (1,1) Wall thickness (mm)
+           .thicknessRail          (1,1) Rail thickness (mm)
+           .densityWall            (1,1) Density of the wall material (kg/m3)
+           .massComponents         (1,1) Interior component mass (kg)
+           .cMComponents           (1,1) Interior components center of mass
+           .sigma                  (3,6) [absorbed; specular; diffuse]
+           .cD                     (1,6) Drag coefficient
+           .solarPanel.dim         (3,1) [side attached to cubesat, side perpendicular, thickness]
+           .solarPanel.nPanels     (1,1) Number of panels per wing
+           .solarPanel.rPanel      (3,w) Location of inner edge of panel
+           .solarPanel.sPanel      (3,w) Direction of wing spine
+           .solarPanel.cellNormal  (3,w) Wing cell normal
+           .solarPanel.sigmaCell   (3,1) [absorbed; specular; diffuse] coefficients
+           .solarPanel.sigmaBack   (3,1) [absorbed; specular; diffuse] 
+           .solarPanel.mass        (1,1) Panel mass
+      - OR -
+   t                               (1,1) Wall thickness (mm)
+   frameOnly   (1,1) If true just draw the frame, optional
+
+   -------
+   Outputs
+   -------
+   v    	(:,3) Vertices
+   f    	(:,3) Faces
+   dRHS	(1,1) Data structure for the function RHSCubeSat
+
+--------------------------------------------------------------------------
+   Reference: CubeSat Design Specification (CDS) Revision 9 
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/AddMassHeader.html">AeroUtils: CAD/AddMass</a>
+<a href="../CommonHeaders/BoxHeader.html">Common: Graphics/Box</a>
+<a href="../CommonHeaders/TitleSHeader.html">Common: Graphics/TitleS</a>
+<a href="../CommonHeaders/InertiasHeader.html">Common: MassProperties/Inertias</a>
+<a href="../CubeSatHeaders/RHSCubeSatHeader.html">CubeSat: Simulation/RHSCubeSat</a>
+<a href="../CubeSatHeaders/CubeSatFacesHeader.html">CubeSat: Utilities/CubeSatFaces</a>
+<a href="../CubeSatHeaders/DrawCubeSatHeader.html">CubeSat: Visualization/DrawCubeSat</a>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/DupVectHeader.html">Math: Linear/DupVect</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

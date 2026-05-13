@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>AirCoreTorquerModel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>AirCoreTorquerModel:</h2>
+<pre>
+ Draw an air core magnetic torquer.
+
+ Type AirCoreTorquerModel for a demo.
+--------------------------------------------------------------------------
+   Form:
+   [v, f] = AirCoreTorquerModel( nTurns, rWire, dims )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   nTurns      (1,1) Wire turns
+   rWire       (1,1) Wire radius (m) 
+   dim         (1,2) Dimensions of the coil (m)
+
+   -------
+   Outputs
+   -------
+   v           (:,3) Vertices
+   f           (:,3) Faces
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/BoxHeader.html">Common: Graphics/Box</a>
+<a href="../CommonHeaders/NewFigHeader.html">Common: Graphics/NewFig</a>
+<a href="../CommonHeaders/XLabelSHeader.html">Common: Graphics/XLabelS</a>
+<a href="../CommonHeaders/YLabelSHeader.html">Common: Graphics/YLabelS</a>
+<a href="../CommonHeaders/ZLabelSHeader.html">Common: Graphics/ZLabelS</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

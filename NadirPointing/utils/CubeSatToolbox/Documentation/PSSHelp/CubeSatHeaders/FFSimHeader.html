@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>FFSim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>FFSim:</h2>
+<pre>
+ Formation flying simulation for circular orbits. 
+
+ *** Notes on Usage ***
+
+ Once this function has run and the outputs have been created, use the
+ "FFSimPlotter" function to plot the data.
+
+ *** Inputs ***
+   Supply the initial state of the reference (el0) and the initial relative 
+   state (dEl0), define the desired relative motion (goals), how many 
+   orbits to simulate (nOrbits), the number of simulation points per orbit 
+   (nSPO), the disturbance options (distOpt), the cross-sectional area, mass.
+
+ *** Estimated Absolute and Relative States (ECI) ***
+   The estimated absolute and relative ECI position and velocity are provided 
+   by adding noise to the true state. This emulates the data provided by a 
+   relative navigation unit.
+
+ *** Estimated Relative State (Hills) ***
+   The estimated relative position and velocity in the Hill's frame is 
+   computed via a transformation from the estimated absolute and relative 
+   ECI position and velocity. This computation is performed in the 
+   "AbsRelECI2Hills" function.
+
+ *** Estimated Orbital Elements ***
+   The estimated mean orbital elements and mean orbital element differences
+   are computed from the estimated absolute and relative ECI position and
+   velocity. This computation is performed in the "ECI2MeanElements" function.
+
+ *** Desired Orbital Elements ***
+   At each step in the simulation, the initial goals are used along with the 
+   current estimate of the mean orbital elements to compute the desired 
+   orbital element differences. 
+
+ *** Desired Relative State (Hills) ***
+   The desired element differences are transformed to the Hill's frame, 
+   defining the desired relative position and velocity.
+
+ *** Relative State Error (Hills) ***
+   The relative position errors and relative velocity errors are computed by
+   comparing the desired and estimated states.
+ 
+--------------------------------------------------------------------------
+   Usage:
+   simData = FFSim( simOptions );
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   simOptions    (.)   Data structure with the following fields:
+     - el0            (1,6)  Initial reference orbital elements  (Alfriend format) [a,theta,i,q1,q2,W]
+     - dEl0           (1,6)  Initial orbital element differences (Alfriend format)
+     - goals           (.)   Goals data structure defining desired relative motion
+     - nOrbits         (1)   Number of orbits to simulate
+     - nSPO            (1)   Number of simulation points per orbit
+     - distOpt        (1,3)  Disturbance options (flags)
+                          (1) solar:  whether to simulate with solar pressure or not
+                          (2) drag:   whether to simulate with drag or not
+                          (3) J2:     whether to simulate with J2 or not
+     - mass           (1,2)  Mass of reference and relative [kg]
+     - area           (1,2)  Cross-sectional area of reference and relative [m^2]
+
+   -------
+   Outputs
+   -------
+   simData       (.)   Simulation output data structure with the following fields
+     - time          (1,:)   Time vector [orbits] 
+     - rE            (3,:)   True ECI position of reference
+     - vE            (3,:)   True ECI velocity of reference
+     - rE_est        (3,:)   Estimated ECI position of reference
+     - vE_est        (3,:)   Estimated ECI velocity of reference
+     - rH            (3,:)   True Hills-frame relative position
+     - vH            (3,:)   True Hills-frame relative velocity
+     - rH_est        (3,:)   Estimated Hills-frame relative position
+     - vH_est        (3,:)   Estimated Hills-frame relative velocity
+     - rH_des        (3,:)   Desired Hills-frame relative position
+     - vH_des        (3,:)   Desired Hills-frame relative velocity
+     - dElMean       (6,:)   True mean element differences
+     - dElMean_est   (6,:)   Estimated mean element differences
+     - dElMean_des   (6,:)   Desired mean element differences
+     - elRefMean_est (6,:)   Estimated mean elements of reference
+     - fDiffDragH    (3,:)   Hills-frame differential drag force
+     - fDiffDragE    (3,:)   ECI-frame differential drag force
+     - fDiffSolarH   (3,:)   Hills-frame differential solar force
+     - fDiffSolarE   (3,:)   ECI-frame differential solar force
+     - fDiffJ2H      (3,:)   Hills-frame differential J2 force (apparent)
+     - fDiffJ2E      (3,:)   ECI-frame differential J2 force (apparent)
+
+--------------------------------------------------------------------------
+ See also FFSimPlotter, AbsRelECI2Hills, ECI2MeanElements, Alfriend2El
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/AtmDens2Header.html">AeroUtils: AtmosphericCalculations/AtmDens2</a>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../AeroUtilsHeaders/QHillsHeader.html">AeroUtils: Coord/QHills</a>
+<a href="../CommonHeaders/ConstantHeader.html">Common: Database/Constant</a>
+<a href="../CommonHeaders/QFormHeader.html">Common: Quaternion/QForm</a>
+<a href="../CommonHeaders/QTFormHeader.html">Common: Quaternion/QTForm</a>
+<a href="../CommonHeaders/JD2000Header.html">Common: Time/JD2000</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../CommonHeaders/AltitudeHeader.html">Common: Transform/Altitude</a>
+<a href="../CommonHeaders/RPhiTheta2CartHeader.html">Common: Transform/RPhiTheta2Cart</a>
+<a href="../CubeSatHeaders/FFSimPlotterHeader.html">CubeSat: RelativeOrbit/FFSimPlotter</a>
+<a href="../FormationFlyingHeaders/Geometry_StructureHeader.html">FormationFlying: DataStructures/Geometry_Structure</a>
+<a href="../FormationFlyingHeaders/AbsRelECI2HillsHeader.html">FormationFlying: Transformation/AbsRelECI2Hills</a>
+<a href="../FormationFlyingHeaders/ECI2MeanElementsHeader.html">FormationFlying: Transformation/ECI2MeanElements</a>
+<a href="../FormationFlyingHeaders/Goals2DeltaElemHeader.html">FormationFlying: Transformation/Goals2DeltaElem</a>
+<a href="../FormationFlyingHeaders/Goals2HillsHeader.html">FormationFlying: Transformation/Goals2Hills</a>
+<a href="../FormationFlyingHeaders/Hills2DeltaElemHeader.html">FormationFlying: Transformation/Hills2DeltaElem</a>
+<a href="../MathHeaders/RK4Header.html">Math: Integration/RK4</a>
+<a href="../MathHeaders/RK4TIHeader.html">Math: Integration/RK4TI</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+<a href="../OrbitHeaders/LoadGravityModelHeader.html">Orbit: GravityModels/LoadGravityModel</a>
+<a href="../OrbitHeaders/Alfriend2ElHeader.html">Orbit: OrbitCoord/Alfriend2El</a>
+<a href="../OrbitHeaders/OrbElemDiffHeader.html">Orbit: OrbitCoord/OrbElemDiff</a>
+<a href="../OrbitHeaders/AGravityHeader.html">Orbit: OrbitMechanics/AGravity</a>
+<a href="../SCHeaders/El2RVHeader.html">SC: BasicOrbit/El2RV</a>
+<a href="../SCHeaders/OrbRateHeader.html">SC: BasicOrbit/OrbRate</a>
+<a href="../SCHeaders/SolarFHeader.html">SC: Disturbances/SolarF</a>
+<a href="../SCHeaders/EclipseHeader.html">SC: Ephem/Eclipse</a>
+<a href="../SCHeaders/SunV1Header.html">SC: Ephem/SunV1</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

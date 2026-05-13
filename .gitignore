@@ -1,0 +1,4 @@
+# Claude Code — local guidance and per-project settings, not for the public repo.
+CLAUDE.md
+.claude/
+.claude.json

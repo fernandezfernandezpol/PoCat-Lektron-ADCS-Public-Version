@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>ConvertOBJFileColorToMatlab</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>ConvertOBJFileColorToMatlab:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Converts the Wavefront OBJ color format to Matlab.
+   Edge color is set equal to face color
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   d = ConvertOBJFileColorToMatlab( m )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   m            (1,1) Material file data structer
+                        .Kd    (1,3) Diffuse reflectivity
+                        .Ks    (1,3) Specular reflectivity
+                        .Ka    (1,3) Ambient reflectivity
+                        .Ns    (1,3) Specular exponent
+                        .illum (1,3) Illumination model (not used)
+                        .d     (1,1) Transparency
+
+   -------
+   Outputs
+   -------
+   d            (1,1) Matlab color
+                        .faceColor                (1,3) Color of faces
+                        .edgeColor                (1,3) Color of edges
+                        .diffuseStrength          (1,1)
+                        .specularStrength         (1,1)
+                        .ambientStrength          (1,1)
+                        .specularExponent         (1,1)
+                        .specularColorReflectance (1,1)
+                        .faceAlpha                (1,1) Alpha channel
+
+--------------------------------------------------------------------------
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

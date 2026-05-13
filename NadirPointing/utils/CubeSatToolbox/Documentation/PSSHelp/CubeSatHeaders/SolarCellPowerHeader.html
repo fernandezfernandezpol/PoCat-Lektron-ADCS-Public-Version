@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>SolarCellPower</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>SolarCellPower:</h2>
+<pre>
+ Compute the power for a solar power system.
+ Has a built-in demo. Can also return the default data structure.
+
+ Since version 8.
+------------------------------------------------------------------------
+   Form:
+   power = SolarCellPower( d, pSun )
+   d = SolarCellPower
+   SolarCellPower        (demo)
+------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   d       (.)      Data structure
+                    .solarCellEff       (1,1) Efficiency of the cells
+                    .effPowerConversion (1,1) Efficiency of the power
+                                              conversion
+                    .solarCellArea      (1,:) Total cell area (m^2)
+                    .solarCellNormal    (3,:) Unit normal vector to the
+                                              cell face
+   pSun   (3,1)     Solar power flux vector (W)
+
+   -------
+   Outputs
+   -------
+   power  (1,1)     Power (W)
+
+------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

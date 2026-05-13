@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>RHSCubeSat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>RHSCubeSat:</h2>
+<pre>
+ Right-hand-side for a CubeSat orbit and attitude dynamical model.
+
+ Includes drag and optical surface disturbances, magnetic dipole,
+ gravity gradient, rigid body dynamics and power. Uses the J70
+ atmosphere model and applies a point-mass gravity model. Computes sun
+ location with SunV1 and accounts for eclipses from the Earth. The
+ surface parameters in surfData are passed to both the optical and
+ aerodynamic disturbance model functions.
+
+ The states are [position;velocity;quaternion;angular velocity; battery charge].
+ The battery charge must always be the last state. Its units are J. If there
+ are wheel states they must be between the spacecraft angular velocity and the
+ battery charge, and the indices be logged in kWheels.
+
+ Can output the disturbance forces and torques for post-processing.
+ There is also a call to retrieve the default data structure.
+--------------------------------------------------------------------------
+   Form:
+   [xDot,dist,power] = RHSCubeSat( x, t, d )
+   d = RHSCubeSat
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   x        (14,1)    [r;v;q;w;wRWA;b]
+   t         (1,1)    Time, sec
+   d          (.)     Data structure
+                      .jD0      (1,1) Julian date of epoch
+                      .mass     (1,1) Spacecraft mass (kg)
+                      .inertia  (3,3) Inertia matrix (kg-m2)
+                      .dipole   (3,1) Residual dipole (ATM^2)
+                      .power     (.)  Power data, see SolarCellPower 
+                      .aeroModel    * Handle, see CubeSatAero
+                      .opticalModel * Handle, see CubeSatRadiationPressure
+                      .surfData  (.)  optional; empty to skip drag/optical calcs
+                                      .cD    (3,1) Drag coefficient
+                                      .cM    (3,1) Center of mass (m)
+                                      .area  (1,n) Area (m2)
+                                      .nFace (3,n) Face normals
+                                      .rFace (3,n) Face locations (m)
+                                      .att    (.)  Attitude model
+                                      .sigma (3,n) Optical coefficients
+                                      .planet (1)  Planet effects flag
+                      .atm       (.) optional; empty to skip J70 and use AtmDens2
+                      .kWheels         (n), empty if no wheels, indices of wRWA
+                      .inertiaRWA     (1,1), optional, polar inertia (kg-m2)
+                      .tRWA           (3,1), optional, wheel torque (Nm)
+
+   -------
+   Outputs
+   -------
+   x           (14,1)	   d[r;v;q;w;b]/dt
+   dist         (.)       Disturbances data
+    .fTotal  	   (3,1)   Total force, ECI frame  (N)
+    .tTotal       (3,1)   Total torque, body frame (Nm)
+    .fAerodyn	   (3,1)   Aerodynamic force
+    .tAerodyn     (3,1)   Aerodynamic torque
+    .fOptical	   (3,1)   Optical force
+    .tOptical     (3,1)   Optical torque
+    .tMag         (3,1)   Magnetic torque
+    .tGG          (3,1)   Gravity gradient torque
+   power       (1,1)      Power from solar cells (W)
+ 
+--------------------------------------------------------------------------
+ See also SolarCellPower, CubeSatAero, CubeSatRadiationPressure,
+ SolarFluxPrediction, CubeSatEnvironment, CubeSatSimulation,
+ CubeSatRWASimulation
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/QIToBDotHeader.html">AeroUtils: Coord/QIToBDot</a>
+<a href="../CommonHeaders/QFormHeader.html">Common: Quaternion/QForm</a>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CubeSatHeaders/SolarCellPowerHeader.html">CubeSat: Power/SolarCellPower</a>
+<a href="../CubeSatHeaders/CubeSatAeroHeader.html">CubeSat: Simulation/CubeSatAero</a>
+<a href="../CubeSatHeaders/CubeSatEnvironmentHeader.html">CubeSat: Simulation/CubeSatEnvironment</a>
+<a href="../CubeSatHeaders/CubeSatRadiationPressureHeader.html">CubeSat: Simulation/CubeSatRadiationPressure</a>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../SCHeaders/GravityGradientFromRHeader.html">SC: Disturbances/GravityGradientFromR</a>
+<a href="../SCHeaders/SolarFluxPredictionHeader.html">SC: Environs/SolarFluxPrediction</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

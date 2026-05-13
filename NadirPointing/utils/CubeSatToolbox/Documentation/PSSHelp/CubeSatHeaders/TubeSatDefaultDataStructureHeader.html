@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>TubeSatDefaultDataStructure</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>TubeSatDefaultDataStructure:</h2>
+<pre>
+ Default data structure for TubeSat model.
+--------------------------------------------------------------------------
+   Form:
+   d = TubeSatDefaultDataStructure( l, jD )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   l          (1,1)   Either (1,2,3,4) for single, double, triple or quad
+   jD         (1,1)   Julian date for solar data, optional
+
+   ------
+   Outputs
+   ------
+   d          (.)     Data structure
+                      .jD0
+                      .mass
+                      .inertia
+                      .power
+                      .dipole
+                      .surfData, optional; empty to skip drag calcs
+                      .aeroModel
+                      .opticalModel
+                      .atm
+                      .kWheels, empty if no wheels
+                      .inertiaRWA, optional
+                      .tRWA, optional
+
+--------------------------------------------------------------------------
+   See also InertiaTubeSat, TubeSatFaces, RHSCubeSat, SurfaceProperties
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CubeSatHeaders/InertiaTubeSatHeader.html">CubeSat: AttitudeControl/InertiaTubeSat</a>
+<a href="../CubeSatHeaders/RHSCubeSatHeader.html">CubeSat: Simulation/RHSCubeSat</a>
+<a href="../CubeSatHeaders/TubeSatFacesHeader.html">CubeSat: Utilities/TubeSatFaces</a>
+<a href="../SCHeaders/SolarFluxPredictionHeader.html">SC: Environs/SolarFluxPrediction</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

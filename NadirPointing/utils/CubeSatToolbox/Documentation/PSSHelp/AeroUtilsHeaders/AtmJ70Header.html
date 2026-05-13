@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>AtmJ70</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>AtmJ70:</h2>
+<pre>
+ Computes the atmospheric density using Jacchia's 1970 model.
+
+ Type AtmJ70 for demo.
+--------------------------------------------------------------------------
+   Form:
+   [rho, nHe, nN2, nO2, nO, tZ, eM] = AtmJ70( d )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   d    (:) Data structure
+            .aP         Geomagnetic index 6.7 hours before the computation
+            .dd         Day number since Jan 1., days
+            .f          Daily 10.7 cm solar flux (e-22 watts/m^2/cycle/sec)
+            .fHat       81-day mean of f (e-22 watts/m^2/cycle/sec)
+            .fHat400    fHat 400 days before computation date
+            .lat        Latitude of computation point + north (deg)
+            .lng        Longitude of computation point + east (deg)
+            .mm         Greenwich mean time from 0000 GMT, minutes
+            .yr         Year
+            .z          Geometric altitude (km)
+
+   or
+            .jD         Julian date
+            .rECI       ECI position vector
+            .aP         Geomagnetic index 6.7 hours before the computation
+            .f          Daily 10.7 cm solar flux (e-22 watts/m^2/cycle/sec)
+            .fHat       81-day mean of f (e-22 watts/m^2/cycle/sec)
+            .fHat400    fHat 400 days before computation date
+
+   -------
+   Outputs
+   -------
+   rho  (:) Density (g/cm^3)
+   nHe  (:) Number density of helium
+   nN2  (:) Number density of nitrogen
+   nO2  (:) Number density of oxygen
+   nO   (:) Number density of monatomic oxygen
+   tZ   (:) Temperature
+   eM   (:) Mean molecular mass
+
+   See also SolarFluxPrediction.
+
+--------------------------------------------------------------------------
+    Reference: Models of the Earth's Atmosphere (90 to 2500 kM) NASA SP-8021.
+               Roberts, C.E. Jr, "An Analytic Model for Upper Atmosphere
+               Densities Based Upon Jacchia's 1970 Models", Celestial Mechanics
+               Vol. 4, 1971, pp. 368-377.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/BaromExpHeader.html">AeroUtils: AtmosphericCalculations/BaromExp</a>
+<a href="../AeroUtilsHeaders/DiffusionExpHeader.html">AeroUtils: AtmosphericCalculations/DiffusionExp</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/JD2DNHeader.html">Common: Time/JD2DN</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../MathHeaders/ACosDHeader.html">Math: Trigonometry/ACosD</a>
+<a href="../SCHeaders/SunV1Header.html">SC: Ephem/SunV1</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

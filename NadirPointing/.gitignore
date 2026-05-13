@@ -1,0 +1,12 @@
+# MATLAB
+*.asv
+
+# Resultados de simulación
+Results/
+*.png
+*.jpg
+*.fig
+
+# datos temporales
+*.mat
+*.log

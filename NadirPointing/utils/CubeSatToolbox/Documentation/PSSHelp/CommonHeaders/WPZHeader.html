@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>WPZ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>WPZ:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Frequency vector with complex poles and zeros.  
+  	This routine produces a frequency vector that includes all of the
+   complex poles of the system and all complex zeros of each channel.
+   This vector is useful for frequency response calculations.
+
+   Since version 1.
+--------------------------------------------------------------------------
+   Form:
+   w = WPZ( a, b, c, d, n, iu, iy )
+   w = WPZ( num, den, n )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   a                   Plant matrix or numerator polynomials
+   b                   Input matrix or denominator polynomials
+   c                   Measurement matrix
+   d                   Input feedthrough matrix
+   n                   Number of frequency points
+   iu                  Inputs  ( = 0, or leave out for all)
+   iy                  Outputs ( = 0, or leave out for all)
+
+   -------
+   Outputs
+   -------
+   w                   Frequency vector
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/S2DampHeader.html">Common: Control/S2Damp</a>
+<a href="../CommonHeaders/SizeABCDHeader.html">Common: Control/SizeABCD</a>
+<a href="../CommonHeaders/TrnsZeroHeader.html">Common: Control/TrnsZero</a>
+<a href="../CommonHeaders/WResonHeader.html">Common: Control/WReson</a>
+<a href="../CommonHeaders/LogLimitHeader.html">Common: Graphics/LogLimit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

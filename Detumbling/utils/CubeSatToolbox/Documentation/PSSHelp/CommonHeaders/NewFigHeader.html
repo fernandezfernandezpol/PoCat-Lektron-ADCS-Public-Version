@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>NewFig</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>NewFig:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Creates a new figure.
+   Sets the default axes font size to 12. Applies the global fontSizeIncrease
+   in addition to the 12 pt, if defined. Tags the figure with 'PlotPSS'
+   for use with DemoPSS.
+
+   Since version 1.
+--------------------------------------------------------------------------
+   Form:
+   h = NewFig( x, varargin )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   x          (:)    Name for the figuref
+   varargin   {}     Parameter pairs to pass to figure()
+
+   -------
+   Outputs
+   -------
+   h                 Handle
+
+--------------------------------------------------------------------------
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

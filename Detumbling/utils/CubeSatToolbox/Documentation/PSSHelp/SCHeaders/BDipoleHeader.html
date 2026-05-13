@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>BDipole</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>BDipole:</h2>
+<pre>
+ Computes the geocentric magnetic field based on a tilted dipole model. 
+ The output is in geocentric inertial coordinates (ECI). This function includes
+ the effect of dipole motion on the earth.
+
+ Type BDipole for a demonstration of a satellite in a low earth inclined orbit.
+--------------------------------------------------------------------------
+   Form:
+   [b, bDot] = BDipole( r, jD, v )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   r           (3,:)   Position vector in the ECI frame
+   jD          (1,:)   Julian days
+   v           (3,:)   Velocity
+
+   -------
+   Outputs
+   -------
+   b           (3,:)   Magnetic field in the ECI frame (T)
+   bDot        (3,:)   Derivative of b in the ECI frame (T/s)
+
+--------------------------------------------------------------------------
+	Reference:  Wertz, J., ed. "Spacecraft Attitude Determination and
+               Control," Kluwer, 1976, 783-784.
+
+   Includes 1995 IGRF coefficients as of Jan. 1999
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/JD2000Header.html">Common: Time/JD2000</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../MathHeaders/SkewHeader.html">Math: Linear/Skew</a>
+<a href="../SCHeaders/PeriodHeader.html">SC: BasicOrbit/Period</a>
+<a href="../SCHeaders/RVFromKeplerHeader.html">SC: BasicOrbit/RVFromKepler</a>
+<a href="../SCHeaders/EarthRteHeader.html">SC: Ephem/EarthRte</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

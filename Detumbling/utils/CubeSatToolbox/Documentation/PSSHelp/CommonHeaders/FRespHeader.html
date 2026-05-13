@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>FResp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>FResp:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Compute the frequency response of the system given a, b, c and d.
+   .
+   x = ax + bu
+   y = cx + du
+
+   for the input vector iu, and output vector iy. If no output arguments
+   are given it will automatically display Bode plots for all channels.
+
+   If only 1 output is requested, the complex values will be output.
+
+   Since version 1.
+--------------------------------------------------------------------------
+   Form:
+   [mag, phase, w, io] = FResp( a, b, c, d, iu, iy, w, uPhase, pType )
+   [mag, phase, w, io] = FResp( num, den, w, uPhase, pType )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   a                   Plant matrix
+   b                   Input matrix
+   c                   Measurement matrix
+   d                   Input feedthrough matrix
+   iu                  Inputs  ( = 0, or leave out for all)
+   iy                  Outputs ( = 0, or leave out for all)
+   w            (1,:)  Frequency vector
+   uPhase       (1,:)  Unwrap phase = 'wrap' to wrap it within 180 deg
+   pType        (1,:)  'bode' or 'nichols'
+
+   -------
+   Outputs
+   -------
+   mag                 Magnitude vector
+   phase               Phase angle vector (deg)
+   w            (1,:)  Frequencies computed
+   io                  Input/output vector per plot [input,output;...]
+
+--------------------------------------------------------------------------
+	References: Laub, A., "Efficient Multivariable Frequency Response
+               Computations," IEEE Transactions on Automatic Control,
+               Vol. AC-26, No. 2, April 1981, pp. 407-408.
+               Maciejowski, J. M., Multivariable Feedback Design,
+               Addison-Wesley, Reading, MA, 1989, pp. 368-370.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/GNDHeader.html">Common: Control/GND</a>
+<a href="../CommonHeaders/GSSHeader.html">Common: Control/GSS</a>
+<a href="../CommonHeaders/SS2NDHeader.html">Common: Control/SS2ND</a>
+<a href="../CommonHeaders/ZFrespHeader.html">Common: Control/ZFresp</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/TextSHeader.html">Common: Graphics/TextS</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

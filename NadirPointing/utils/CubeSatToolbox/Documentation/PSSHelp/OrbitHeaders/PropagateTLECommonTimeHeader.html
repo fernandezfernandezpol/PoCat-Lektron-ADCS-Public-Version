@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>PropagateTLECommonTime</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>PropagateTLECommonTime:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Propagates a set of NORAD two line elements with a common time frame.
+   
+   For each each TLE set, Propagate TLE is called with the appropriate
+   "tVec" input so that the starting epoch of all trajectories is "jD0".
+
+   If "jD0" is empty, the latest Julian date of the given TLEs is used.
+
+   See also NORAD, LoadNORAD, ConvertNORAD, PropagateTLE
+
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   [r,v,x] = PropagateTLECommonTime( jD, tVec, file, model )
+   [r,v,x] = PropagateTLECommonTime( jD, tVec, x, model )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   jD0           (1,1)   Epoch Julian date for all TLEs
+   tVec          (1,:)   Time vector (sec). Referenced to jD0.
+   file          (1,:)   File name OR converted data structure
+   model         (1,:)   Model type 'SGP', 'SGP4', 'SDP4', 'SGP8', 'SGD8'
+                           The default model is SGP4.
+
+   -------
+   Outputs
+   -------
+   r      (3,:) or {:}   Position vectors
+   v      (3,:) or {:}   Velocity vectors
+   x             (:)     Structure of NORAD element data
+
+--------------------------------------------------------------------------
+	References:	Hoots, F. R. and R. L. Roehrich, "Spacetrack Report No. 3:
+               Models for Propagation of NORAD Element Sets", Dec. 1980.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../OrbitHeaders/ConvertNORADHeader.html">Orbit: OrbitCoord/ConvertNORAD</a>
+<a href="../OrbitHeaders/PropagateTLEHeader.html">Orbit: OrbitMechanics/PropagateTLE</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

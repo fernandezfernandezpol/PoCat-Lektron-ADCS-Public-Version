@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>TubeSatSimulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>TubeSatSimulation:</h2>
+<pre>
+ Demonstrate a TubeSat attitude and power system dynamics.
+ This multi-day simulation includes drag and radiation pressure. The only actuator
+ available for attitude is magnetic torquers, which is modeled as a dipole. 
+
+ Compare the resulting gravity gradient torques to those produced by the
+ constant magnetic dipole. Try it: try zero magnetic dipole, and larger or
+ smaller values. Hint: with a strong enough magnetic dipole the satellite will
+ align itself to the Earth's magnetic field.
+
+ Also note the drag force and change in orbital altitude over the simulation.
+ To perform an attitude animation via AnimQ at the end uncomment the last line;
+ it takes a few minutes to run.
+
+  ----------------------------------------------------------------------
+  See also AnimQ, QForm, Plot2D, TimeLabl, RK4, Skew, Date2JD, 
+  InertiaCubeSat, CubeSatAero, RHSCubeSat, TubeSatFaces, BDipole, 
+  SolarFluxPrediction, TubeSatDefaultDataStructure, DrawCubeSatSolarAreas
+  ----------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/QLVLHHeader.html">AeroUtils: Coord/QLVLH</a>
+<a href="../CommonHeaders/FiguiHeader.html">Common: Graphics/Figui</a>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/TimeLablHeader.html">Common: Graphics/TimeLabl</a>
+<a href="../CommonHeaders/QFormHeader.html">Common: Quaternion/QForm</a>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CubeSatHeaders/RHSCubeSatHeader.html">CubeSat: Simulation/RHSCubeSat</a>
+<a href="../CubeSatHeaders/TubeSatDefaultDataStructureHeader.html">CubeSat: Simulation/TubeSatDefaultDataStructure</a>
+<a href="../CubeSatHeaders/DrawCubeSatSolarAreasHeader.html">CubeSat: Visualization/DrawCubeSatSolarAreas</a>
+<a href="../CubeSatHeaders/PlotOrbitHeader.html">CubeSat: Visualization/PlotOrbit</a>
+<a href="../MathHeaders/RK4Header.html">Math: Integration/RK4</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../SCHeaders/OrbRateHeader.html">SC: BasicOrbit/OrbRate</a>
+<a href="../SCHeaders/VOrbitHeader.html">SC: BasicOrbit/VOrbit</a>
+<a href="../SCHeaders/BDipoleHeader.html">SC: Environs/BDipole</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

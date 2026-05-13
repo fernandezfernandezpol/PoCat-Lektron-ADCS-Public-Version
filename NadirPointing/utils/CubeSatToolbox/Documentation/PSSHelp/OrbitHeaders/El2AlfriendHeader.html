@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>El2Alfriend</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>El2Alfriend:</h2>
+<pre>
+--------------------------------------------------------------------------
+ Convert the standard orbital element set into an Alfriend orbital element set 
+             [a,i,W,w,e,M]           ->           [a,th,i,q1,q2,W]
+--------------------------------------------------------------------------
+   Form:
+   ela = El2Alfriend( el, nu )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   el            (:,6) Standard orbital element set [a,i,W,w,e,M]
+
+   -------
+   Outputs
+   -------
+   ela           (:,6) Alfriend orbital element set [a,th,i,q1,q2,W]
+                          where:   th = true latitude
+                                   q1 = e*cos(w)
+                                   q2 = e*sin(w)
+   
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../MathHeaders/WrapPhaseHeader.html">Math: Trigonometry/WrapPhase</a>
+<a href="../SCHeaders/M2NuHeader.html">SC: BasicOrbit/M2Nu</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

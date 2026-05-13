@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>connect</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>connect:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Connection of two state space systems. The connection is
+
+   e -> f
+
+   The connection matrix is lists the indices of the matching outputs
+   of e and inputs of f. For example
+
+   u       (4,1)           y (3,1)
+    f                       e
+
+   c might be [1 1;1 3] which means that output 1 of y goes into input 1
+   of u. Output 3 of y also goes into 1 of u.
+
+   c is [uF;yE]
+
+   Empty c implies parallel connection with separate inputs and outputs:
+
+      -------
+   -  |  f  | --
+      -------
+
+      -------
+   -  |  e  | --
+      -------
+   
+--------------------------------------------------------------------------
+   Form:
+   g = connect( e, f, c )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   e           (:)     Object of class statespace
+   f           (:)     Object of class statespace
+   c           (:,2)   Connection matrix
+
+   -------
+   Outputs
+   -------
+   g           (:)   Series connection
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/@statespace/and.mHeader.html">Common: Classes/@statespace/and.m</a>
+<a href="../CommonHeaders/@statespace/close.mHeader.html">Common: Classes/@statespace/close.m</a>
+<a href="../CommonHeaders/@statespace/connect.mHeader.html">Common: Classes/@statespace/connect.m</a>
+<a href="../CommonHeaders/@statespace/eig.mHeader.html">Common: Classes/@statespace/eig.m</a>
+<a href="../CommonHeaders/@statespace/get.mHeader.html">Common: Classes/@statespace/get.m</a>
+<a href="../CommonHeaders/@statespace/getabcd.mHeader.html">Common: Classes/@statespace/getabcd.m</a>
+<a href="../CommonHeaders/@statespace/getsub.mHeader.html">Common: Classes/@statespace/getsub.m</a>
+<a href="../CommonHeaders/@statespace/isempty.mHeader.html">Common: Classes/@statespace/isempty.m</a>
+<a href="../CommonHeaders/@statespace/mtimes.mHeader.html">Common: Classes/@statespace/mtimes.m</a>
+<a href="../CommonHeaders/@statespace/plus.mHeader.html">Common: Classes/@statespace/plus.m</a>
+<a href="../CommonHeaders/@statespace/series.mHeader.html">Common: Classes/@statespace/series.m</a>
+<a href="../CommonHeaders/@statespace/set.mHeader.html">Common: Classes/@statespace/set.m</a>
+<a href="../CommonHeaders/@statespace/statespace.mHeader.html">Common: Classes/@statespace/statespace.m</a>
+<a href="../CommonHeaders/@statespace/and.mHeader.html">Common: Classes/@statespace/and.m</a>
+<a href="../CommonHeaders/@statespace/close.mHeader.html">Common: Classes/@statespace/close.m</a>
+<a href="../CommonHeaders/@statespace/connect.mHeader.html">Common: Classes/@statespace/connect.m</a>
+<a href="../CommonHeaders/@statespace/eig.mHeader.html">Common: Classes/@statespace/eig.m</a>
+<a href="../CommonHeaders/@statespace/get.mHeader.html">Common: Classes/@statespace/get.m</a>
+<a href="../CommonHeaders/@statespace/getabcd.mHeader.html">Common: Classes/@statespace/getabcd.m</a>
+<a href="../CommonHeaders/@statespace/getsub.mHeader.html">Common: Classes/@statespace/getsub.m</a>
+<a href="../CommonHeaders/@statespace/isempty.mHeader.html">Common: Classes/@statespace/isempty.m</a>
+<a href="../CommonHeaders/@statespace/mtimes.mHeader.html">Common: Classes/@statespace/mtimes.m</a>
+<a href="../CommonHeaders/@statespace/plus.mHeader.html">Common: Classes/@statespace/plus.m</a>
+<a href="../CommonHeaders/@statespace/series.mHeader.html">Common: Classes/@statespace/series.m</a>
+<a href="../CommonHeaders/@statespace/set.mHeader.html">Common: Classes/@statespace/set.m</a>
+<a href="../CommonHeaders/@statespace/statespace.mHeader.html">Common: Classes/@statespace/statespace.m</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

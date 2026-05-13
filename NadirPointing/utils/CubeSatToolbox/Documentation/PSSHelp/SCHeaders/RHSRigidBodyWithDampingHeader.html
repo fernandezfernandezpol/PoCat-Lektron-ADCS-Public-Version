@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>RHSRigidBodyWithDamping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>RHSRigidBodyWithDamping:</h2>
+<pre>
+------------------------------------------------------------------------
+   Rigid body dynamics with damping.
+
+   d.dampingFun is of the form
+
+     DampingFun( x, jD, bFieldBody, d )
+
+   where d is the damping data.
+
+   Since version 2014.1
+------------------------------------------------------------------------
+   Form:
+   [xDot, p] = RHSRigidBodyWithDamping( x, t, d )
+------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   x       (13+n,1)	[r;v;q;omega;z] 
+   t       (1,1)       Time since start (s)
+   d       (1,1)       Data structure
+                       .inertia        (3,3) Spacecraft inertia (kg-m^2)
+                       .dampingFun     (1,1) Handle to the damping function
+                       .dampingData    (1,1) Damping function data
+                       .dipole         (3,1) Fixed dipole
+
+
+   -------
+   Outputs
+   -------
+   xDot    (13+n,1)	Right hand side
+   p       (1,1)     Data structure
+                       .torqueDamper   (3,1) Damper torque   (Nm)
+                       .torqueDipole   (3,1) Dipole torque	(Nm)
+                       .bfieldBody     (3,1) Magnetic field  (T)
+                       .bfieldECI      (3,1) Magnetic field  (T)
+
+------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/QIToBDotHeader.html">AeroUtils: Coord/QIToBDot</a>
+<a href="../CommonHeaders/QFormHeader.html">Common: Quaternion/QForm</a>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../SCHeaders/BDipoleHeader.html">SC: Environs/BDipole</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

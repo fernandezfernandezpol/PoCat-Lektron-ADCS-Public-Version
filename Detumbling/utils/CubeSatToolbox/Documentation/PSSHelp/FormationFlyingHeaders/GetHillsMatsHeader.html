@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>GetHillsMats</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>GetHillsMats:</h2>
+<pre>
+--------------------------------------------------------------------------
+   This function takes the position and velocity of a satellite in the ECI 
+   frame, and returns the A and Adot matrices used for transformation to 
+   the Hills frame. They are used in the following equations:
+
+   rH = A*(r1-r0);
+   vH = A*(v1-v0) + Adot*(r1-r0);
+
+   Since version 7.
+--------------------------------------------------------------------------
+   Form:
+   [A, Adot] = GetHillsMats( r0, v0 )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   r0      (3,1)   Position ECI frame
+   v0      (3,1)   Velocity ECI frame
+
+   -------
+   Outputs
+   -------
+   A       (3,3)   Rotation matrix (position)
+   Adot	(3,3)   Rotation matrix (velocity)
+                   Equal to -Cross( OrbRate(Mag(r0), A )
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../SCHeaders/RV2ElHeader.html">SC: BasicOrbit/RV2El</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

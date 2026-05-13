@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>PlaybackOrbitSim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>PlaybackOrbitSim:</h2>
+<pre>
+ Play back an orbit simulation of multiple objects with sensor cones.
+ Utilizes AnimationGUI.
+
+ Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   PlaybackOrbitSim( time, object, planet, style )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   time          (1,N)    Time vector. For display only. Use any units.
+   object         (:)     Data structure array of simulated objects in orbit
+                          See PackageOrbitDataForPlayback.m. Fields are:
+                             rEF: [3xN double] Earth fixed position (km)
+                             vEF: [3xN double] Earth fixed velocity (km/s)
+                             lat: [1xN double] Latitude (rad)
+                             lon: [1xN double] Longitude (rad)
+                               h: [1xN double] Altitude (km)
+                         coneFOV: [1xN double] Cone field of view (rad)
+                       conePitch: [1xN double] Cone pitch from nadir (rad)
+                     coneAzimuth: [Nx1 double] Cone azimuth from north (rad)
+                        coneAxis: [3xN double] Cone axis in Earth-fixed frame
+                          swathX: [NxP double] Swath curve, Earth-fixed x-coord.
+                          swathY: [NxP double] Swath curve, Earth-fixed y-coord.
+                          swathZ: [NxP double] Swath curve, Earth-fixed z-coord.
+                        swathLat: [NxP double] Swath curve, latitude
+                        swathLon: [NxP double] Swath curve, longitude
+   planet         (:)     Name of planet file to use (e.g. 'EarthHR')
+   style          (:)     '2D' or '3D'   
+                          NOTE: '2D' is not yet supported. To be supported
+                          in a future release.
+
+   -------
+   Outputs
+   -------
+   None
+
+   See also:  PackageOrbitDataForPlayback.m
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/ColorSpreadHeader.html">Common: General/ColorSpread</a>
+<a href="../CommonHeaders/LegendFigHeader.html">Common: General/LegendFig</a>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CubeSatHeaders/PackageOrbitDataForPlaybackHeader.html">CubeSat: MissionPlanning/PackageOrbitDataForPlayback</a>
+<a href="../MathHeaders/DupVectHeader.html">Math: Linear/DupVect</a>
+<a href="../PlottingHeaders/AnimationGUIHeader.html">Plotting: GUI/AnimationGUI</a>
+<a href="../SCHeaders/OrbRateHeader.html">SC: BasicOrbit/OrbRate</a>
+<a href="../SCHeaders/PeriodHeader.html">SC: BasicOrbit/Period</a>
+<a href="../SCHeaders/RVFromKeplerHeader.html">SC: BasicOrbit/RVFromKepler</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

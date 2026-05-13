@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>LossAtmosphericGas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>LossAtmosphericGas:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Computes the link attenuation due to gas. 
+   Assumes the signal passes through a fixed slice of atmosphere.
+
+   Type LossAtmosphericGas for a demo.
+
+   To make the output a gain change to sign of the output to negative.
+--------------------------------------------------------------------------
+   Form:
+   a = LossAtmosphericGas( f, E )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   f              (1,m)  Frequency (GHz)
+   E              (1,n)  Elevation angle (deg)
+
+   -------
+   Outputs
+   -------
+   a              (n,m)  Loss (dB)
+
+--------------------------------------------------------------------------
+	 Reference: Maral, G. and M. Bousquet. (1998.) Satellite Communications
+               Systems, Third Edition. John Wiley. p. 57.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

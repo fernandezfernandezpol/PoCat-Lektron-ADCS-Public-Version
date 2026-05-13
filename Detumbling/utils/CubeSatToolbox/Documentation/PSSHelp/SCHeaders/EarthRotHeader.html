@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>EarthRot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>EarthRot:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Computes the Earth greenwich matrix that transforms from ECI to EF.
+   Any input of eOfECalc will cause it to include the equation of the 
+   equinoxes.
+
+   Type EarthRot for a demo.
+
+--------------------------------------------------------------------------
+   Form:
+   [g, gMST, gAST] = EarthRot( T, eOfECalc )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   T           (1,1) Julian centuries of 86400s dynamical time from j2000.0
+   eOfECalc    (1,1) Calculate the equation of the equinoxes
+
+   -------
+   Outputs
+   -------
+   g           (3,3) Greenwich matrix
+   gMST        (1,1) Greenwich mean sidereal time (deg)
+   gAST        (1,1) Greenwich apparent sidereal time (deg)
+
+--------------------------------------------------------------------------
+   See also: GMSTime, EOfE, JD2T
+--------------------------------------------------------------------------
+   References:	Seidelmann, P. K., The Explanatory Supplement to the 
+               Astronomical Almanac,  University Science Books, 1992, p. 20.
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Date2JDHeader.html">Common: Time/Date2JD</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../SCHeaders/EOfEHeader.html">SC: Ephem/EOfE</a>
+<a href="../SCHeaders/GMSTimeHeader.html">SC: Ephem/GMSTime</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

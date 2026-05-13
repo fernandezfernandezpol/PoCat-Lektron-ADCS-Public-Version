@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>QLVLH</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>QLVLH:</h2>
+<pre>
+ Generate the quaternions that transform from ECI to LVLH coordinates.
+ For LVLH coordinates;
+ z is in the -r direction
+ y is in the - rxv direction
+ x completes the set; along v in a circular orbit
+
+ Since version 1.
+--------------------------------------------------------------------------
+   Form:
+   q = QLVLH( r, v )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   r          (3,n) Position vectors
+   v          (3,n) Velocity vectors
+
+   -------
+   Outputs
+   -------
+   q          (4,n) Quaternions
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../CommonHeaders/Plot2DHeader.html">Common: Graphics/Plot2D</a>
+<a href="../CommonHeaders/Mat2QHeader.html">Common: Quaternion/Mat2Q</a>
+<a href="../MathHeaders/CrossHeader.html">Math: Linear/Cross</a>
+<a href="../MathHeaders/UnitHeader.html">Math: Linear/Unit</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

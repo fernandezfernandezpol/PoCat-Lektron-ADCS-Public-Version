@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>CubeSatAttitude</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>CubeSatAttitude:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Returns the CubeSat attitude quaternion from ECI to body.
+
+   There are two options. One is ECI in which case it just passes out
+   d.qECIToBody. For LVLH frame the routine computes the ECI to LVLH
+   quaternion from the entered r and v and multiplies that times
+   qLVLHToBody, to produce the qECIToBody.
+
+   This function is used when you don't want to simulate attitude
+   dynamics. There is an option to retrieve the default data structure. %
+   This sets both qLVLHToBody and qECIToBody to [1;0;0;0].
+   
+   Since version 8.
+--------------------------------------------------------------------------
+   Form:
+   q = CubeSatAttitude( d, r, v )
+   d = CubeSatAttitude
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   d         (.)    Data structure
+                    .type        (1,:) 'eci' or 'lvlh'
+                    .qLVLHToBody (4,1) Quaternion from LVLHToBody
+                    .qECIToBody  (4,1) Quaternion from ECI to body frame
+   r        (3,1)   ECI position vector
+   v        (3,1)   ECI velocity vector
+
+
+   -------
+   Outputs
+   -------
+   q        (4,1)   qECIToBody
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/QLVLHHeader.html">AeroUtils: Coord/QLVLH</a>
+<a href="../CommonHeaders/QMultHeader.html">Common: Quaternion/QMult</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

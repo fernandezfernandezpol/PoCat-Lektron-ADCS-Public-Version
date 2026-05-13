@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>AnimationGUI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>AnimationGUI:</h2>
+<pre>
+--------------------------------------------------------------------------
+   This function creates a GUI for doing animations. 
+--------------------------------------------------------------------------
+   Callback Usage:
+   x = AnimationGUI( action, a, b, c  ) 
+ 
+   Command Line Usage:
+   AnimationGUI( 'initialize', scData, tgtData, time, options ) 
+--------------------------------------------------------------------------
+ 
+   ------ 
+   Inputs 
+   ------ 
+   action          (1,:)   Action to take. Use 'initialize' to create GUI.
+   scData           (.)    Spacecraft data strcture. Fields: 
+                             .r    (3,n)    Position
+                             .t    (1,n)    Time
+                             .c    (3,1)    Constant color, OR:
+                             .c    (3,n)    Time-varying color
+                             .name (:)      Name for labeling
+                             .axis (3,n)    Axis vector for pointing cone
+                             .angle(1,n)    Field of view of cone
+   tgtData          (.)    Target data strcture.     Fields: r, t, c
+   time            (1,N)   Time vector with N points.
+   options          (.)    Data structure with display options.
+     .axisType     (1,:)   Specifies how to draw axis background 
+                           and labels. Choices: 'Hills', 'LVLH', 'Earth', 
+                           'EarthHR' or any other planet name. If a planet 
+                           is chosen it will be drawn in the background. 
+                           In this case it is best to supply planet-fixed 
+                           coordinates so that the trajectory is drawn 
+                           properly with respect to the planet image.
+     .docked       (1,1)   Flag. Specify whether the axes are docked with
+                           the UI controls (1) or in a separated window (0)
+     .view         (1,:)   String. '2D' or '3D'. If 2D, 3rd row is set to 0.
+     .date         (1,1)   Initial Julian date, for lighting of planet axis type 
+                           only. In this case the time units must be seconds
+                           for accurate lighting effects.
+ 
+   ------- 
+   Outputs 
+   ------- 
+   x                (:)    Outputs only supplied when called as a callback
+                           function from the GUI.
+ 
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../CommonHeaders/CloseFigureHeader.html">Common: General/CloseFigure</a>
+<a href="../CommonHeaders/AddViewHeader.html">Common: Graphics/AddView</a>
+<a href="../CommonHeaders/AddZoomHeader.html">Common: Graphics/AddZoom</a>
+<a href="../CommonHeaders/CameraControlsHeader.html">Common: Graphics/CameraControls</a>
+<a href="../CommonHeaders/ConeHeader.html">Common: Graphics/Cone</a>
+<a href="../CommonHeaders/SliderBarHeader.html">Common: Graphics/SliderBar</a>
+<a href="../CommonHeaders/JD2000Header.html">Common: Time/JD2000</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../MathHeaders/DupVectHeader.html">Math: Linear/DupVect</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../PlottingHeaders/HelpSystemHeader.html">Plotting: Help/HelpSystem</a>
+<a href="../PlottingHeaders/InitializeAxesHeader.html">Plotting: Utilities/InitializeAxes</a>
+<a href="../SCHeaders/SunV1Header.html">SC: Ephem/SunV1</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

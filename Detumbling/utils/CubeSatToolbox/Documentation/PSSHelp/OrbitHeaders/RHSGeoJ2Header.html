@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>RHSGeoJ2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>RHSGeoJ2:</h2>
+<pre>
+--------------------------------------------------------------------------
+   Computes the right hand side for Earth gravity with J2.
+
+   Since version 2014.
+--------------------------------------------------------------------------
+   Form:
+   xDot = RHSGeoHarm( x, t, d )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   x           (6,1)    Position vector [rECI (km); vECI (km)];
+   t           (1,1)    Time since start Julian Date (s) 
+   d           (1,1)    Highest sectorial and tesseral harmonic 
+                        .j2    (1,1)	J2 term
+                        .mu    (1,1)	Spherical gravitational potential
+                        .a     (1,1)	Planet radius
+                        .jD0	  (1,1) Start Julian Date                    
+
+   -------
+   Outputs
+   -------
+   xDot        (6,1)   [rDot;vDot]
+
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>

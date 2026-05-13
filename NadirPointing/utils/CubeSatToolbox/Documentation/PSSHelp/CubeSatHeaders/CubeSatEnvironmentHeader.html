@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>CubeSatEnvironment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+	$rootPath = "../../";
+	include("../../includes/header.inc");
+?>
+</head>
+<body>
+<div class=page>
+
+<h2>CubeSatEnvironment:</h2>
+<pre>
+ Environment calculations for the CubeSat dynamical model.
+
+ Uses the J70 atmosphere model or AtmDens2 if the data required by J70 is
+ absent. Computes sun location with SunV1 and accounts for eclipses from the
+ Earth via Eclipse. All environment constants including gravity are defined
+ here.
+--------------------------------------------------------------------------
+   Form:
+   e = CubeSatEnvironment             % data structure
+   e = CubeSatEnvironment( x, t, d )
+--------------------------------------------------------------------------
+
+   ------
+   Inputs
+   ------
+   x        (14,1)    [r;v;q;w;b]
+   t         (1,1)    Time, sec
+   d          (.)     Data structure
+                      .jD0          Julian date of epoch
+                      .att      (.) Attitude
+                      .atm      (.) optional; empty to skip J70 and use AtmDens2
+                      .surfData (.) optional; empty to skip drag/optical calcs
+
+   -------
+   Outputs
+   -------
+   env        (.)     Environmental data
+                      .r            ECI position (km)
+                      .v            ECI velocity (km/s)
+                      .q            ECI to body quaternion
+                      .mu           Gravitational constant (km3/s2)
+                      .planetRadius Radius of the planet (km)
+                      .vRel         Velocity relative to the atmosphere (km/s)
+                      .rho          Atmospheric density (kg/m3)
+                      .radiation    Planetary radiation W/m2
+                      .albedo       Planet bond albedo fraction
+                      .uSun         Sun unit vector (ECI)
+                      .rSun         Sun distance (km)
+                      .solarFlux    Solar flux at position (W/m2)
+                      .nEcl         Eclipse fraction (source intensity, 0-1)
+                      .bField       Magnetic field (T)
+ 
+--------------------------------------------------------------------------
+   See also SunV1, Eclipse, AtmDens2, AtmJ70, BDipole
+--------------------------------------------------------------------------
+</pre>
+
+<h2>Children:</h2>
+<pre>
+<a href="../AeroUtilsHeaders/AtmDens2Header.html">AeroUtils: AtmosphericCalculations/AtmDens2</a>
+<a href="../AeroUtilsHeaders/AtmJ70Header.html">AeroUtils: AtmosphericCalculations/AtmJ70</a>
+<a href="../AeroUtilsHeaders/ECIToEFHeader.html">AeroUtils: Coord/ECIToEF</a>
+<a href="../CommonHeaders/JD2THeader.html">Common: Time/JD2T</a>
+<a href="../CubeSatHeaders/CubeSatAttitudeHeader.html">CubeSat: Utilities/CubeSatAttitude</a>
+<a href="../MathHeaders/MagHeader.html">Math: Linear/Mag</a>
+<a href="../MathHeaders/SkewHeader.html">Math: Linear/Skew</a>
+<a href="../SCHeaders/BDipoleHeader.html">SC: Environs/BDipole</a>
+<a href="../SCHeaders/EclipseHeader.html">SC: Ephem/Eclipse</a>
+<a href="../SCHeaders/SunV1Header.html">SC: Ephem/SunV1</a>
+</pre>
+</div>
+<?php include("../../includes/footer.inc"); ?>
+</html>
